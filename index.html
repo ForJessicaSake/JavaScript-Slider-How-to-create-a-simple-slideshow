@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+f<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,66 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="index.js"></script>
 </head>
-<script>
-let i = 0;
-let images = [];
-let time = 1000;
-let paused = false;
-
-//imageList 
-images[0] = 'Ione.jpeg';
-images[1]='Ithree.jpeg'; 
-images[2]= 'Itwo.png';
-
-//slider function next
-function handleChange() {
-    if (!paused) {
-        document.slide.src = images[i];
-        if(i < images.length -1){
-            i++
-        }
-        else{
-            i = 0;
-        }
-    }
-    //automatic slider
-    // setTimeout(handleChange, time)
-}
-
-function previous() {
-    if (i === 0) {
-        i = images.length - 1;
-    } else {
-        i--;
-    }
-    document.slide.src = images[i];
-}
-
-function next() {
-    if(i === images.length - 1) {
-        i = 0;
-    } else {
-        i++;
-    }
-    document.slide.src = images[i];
-}
-
-// function pause() {
-//     paused = !paused;
-// }
-
-window.onload = handleChange;
-
-</script>
 <body>
 <main class="wrapper">
 <section class="mini-container">
     <button class="prevoius btn" onclick="previous()">Previous</button>
-    <img name ="slide" width="750" height="750" alt="movie-poster"/>
+    <img name ="slide" width="750" height="750" alt="movie-poster" onmouseover="pause()" onmouseout="paused = false;"/>
     <button class="next btn" onclick="next()">Next</button>
 </section>
 </main>
-
 </body>
 </html>
+
